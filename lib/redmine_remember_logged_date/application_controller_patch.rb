@@ -13,7 +13,7 @@ module RedmineRememberLoggedDate
     module InstanceMethods
       def clean_session_timelog
         return if controller_name == 'timelog' || session[:last_date].nil?
-        session[:last_date] = nil
+        session.delete(:last_date)
       end
     end
   end
