@@ -12,7 +12,7 @@ module RedmineRememberLoggedDate
 
     module InstanceMethods
       def save_last_date_to_session
-        session[:last_date] = @time_entry.spent_on.to_s(:db).gsub('/', '-')
+        session[:last_date] = @time_entry.spent_on.to_s(:db).gsub('/', '-') unless @time_entry.spent_on.blank?
       end
     end
   end
